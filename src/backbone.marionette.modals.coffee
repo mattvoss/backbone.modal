@@ -1,12 +1,12 @@
 unless Backbone?
-  throw new Error("Backbone is not defined. Please include the latest version from http://documentcloud.github.com/backbone/backbone.js") 
+  throw new Error("Backbone is not defined. Please include the latest version from http://documentcloud.github.com/backbone/backbone.js")
 
 class Backbone.Marionette.Modals extends Backbone.Marionette.Region
   modals: []
   zIndex: 0
 
   show: (modal, options = {}) ->
-    @ensureEl()
+    @_ensureElement()
 
     if @modals.length > 0
       lastModal = _.last(@modals)
@@ -16,12 +16,12 @@ class Backbone.Marionette.Modals extends Backbone.Marionette.Region
 
     modal.render()
     modal.regionEnabled = true
-    
+
     @$el.show()
     @$el.append modal.el
 
     modal.$el.css(background: 'none') if @modals.length > 0
-    
+
     Marionette.triggerMethod.call(modal, "show")
     Marionette.triggerMethod.call(this, "show", modal)
 
@@ -60,7 +60,7 @@ class Backbone.Marionette.Modals extends Backbone.Marionette.Region
       , 300
 
       lastModal.delegateModalEvents() if @zIndex isnt 0
-      
+
     Marionette.triggerMethod.call(this, "close")
 
   closeAll: ->
