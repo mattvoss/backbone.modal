@@ -26,14 +26,13 @@
     }
 
     Modal.prototype.render = function(options) {
-      var data, _ref,
-        _this = this;
+      var data, _ref;
       if (options == null) {
         options = {};
       }
       data = this.serializeData();
-      this.$el.addClass("" + this.prefix + "-wrapper");
-      this.modalEl = Backbone.$('<div />').addClass("" + this.prefix + "-modal");
+      this.$el.addClass("#modal fade");
+      this.modalEl = Backbone.$('<div />').addClass("#modal-dialog");
       if (this.template) {
         this.modalEl.html(this.template(data));
       }
@@ -53,17 +52,15 @@
       if (typeof this.onRender === "function") {
         this.onRender();
       }
-      this.modalEl.css({
-        opacity: 0
-      });
-      this.$el.fadeIn({
-        duration: 100,
-        complete: function() {
-          return _this.modalEl.css({
-            opacity: 1
-          }).addClass("" + _this.prefix + "-modal--open");
-        }
-      });
+      /*
+      @modalEl.css(opacity: 1)
+      @$el.fadeIn
+        duration: 100
+        complete: =>
+          //@modalEl.css(opacity: 1).addClass("#{@prefix}-modal--open")
+      */
+
+      this.el.addClass("#in");
       return this;
     };
 
