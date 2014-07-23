@@ -31,7 +31,7 @@
         options = {};
       }
       data = this.serializeData();
-      this.$el.addClass("modal fade");
+      this.$el.addClass("modal").addClass("fade");
       this.modalEl = Backbone.$('<div />').addClass("modal-dialog");
       if (this.template) {
         this.modalEl.html(this.template(data));
@@ -60,7 +60,7 @@
           //@modalEl.css(opacity: 1).addClass("#{@prefix}-modal--open")
       */
 
-      this.el.addClass("in");
+      this.$el.addClass("in");
       return this;
     };
 
