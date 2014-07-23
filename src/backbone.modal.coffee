@@ -14,8 +14,8 @@ class Backbone.Modal extends Backbone.View
     # use openAt or overwrite this with your own functionality
     data = @serializeData()
 
-    @$el.addClass("#modal fade")
-    @modalEl = Backbone.$('<div />').addClass("#modal-dialog")
+    @$el.addClass("modal fade")
+    @modalEl = Backbone.$('<div />').addClass("modal-dialog")
     @modalEl.html @template(data) if @template
     @$el.html @modalEl
 
@@ -40,7 +40,7 @@ class Backbone.Modal extends Backbone.View
       complete: =>
         //@modalEl.css(opacity: 1).addClass("#{@prefix}-modal--open")
     ###
-    @el.addClass("#in")
+    @el.addClass("in")
 
     return this
 
